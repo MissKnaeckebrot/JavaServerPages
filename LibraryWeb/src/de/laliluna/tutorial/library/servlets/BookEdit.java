@@ -43,7 +43,12 @@ public class BookEdit extends HttpServlet {
 		
 		if(action.equals("add")){
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/bookAdd.jsp");
+			dispatcher.forward(request, response);
+			}
+		else if (action.equals(("edit")){
 			
+		}
+		
 		}
 		
 	}

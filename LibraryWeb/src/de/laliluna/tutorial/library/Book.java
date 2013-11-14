@@ -37,7 +37,7 @@ public class Book {
 		return id;
 	}
 
-	public void setID()
+	public void setID(long id)
 	{
 		this.id = id;
 	}
