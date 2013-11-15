@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+<servlet>
+	<servlet-name>BookList</servlet-name>
+	<servlet-class>de.laliluna.tutorial.library.servlets.BookList</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>BookList</servlet-name>
+	<url-pattern>/bookList</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>BookEdit</servlet-name>
+	<servlet-class>de.laliluna.tutorial.library.servlets.BookEdit</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>BookEdit</servlet-name>
+	<url-pattern>/bookEdit</url-pattern>
+</servlet-mapping>
+</web-app>
+
