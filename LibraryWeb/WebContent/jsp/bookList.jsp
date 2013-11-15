@@ -39,15 +39,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()
 						out.println("<td><input type=\"checkbox\") name=\"available\" value=\"true\" disabled checked></td>");
 						else
 							out.println("<td><input type=\"checkbox\") name=\"availabe\" value=\"true\" disabled></td>");
-							out.println("<td><a href=\"bookEdit ?do=edit&id="+element.getID()+"\">Edit</a></td>");
-							out.println("<td><a href=\"bookEdit ?do=delete&id="+element.getID()+"\">Delete</a></td>");
+							out.println("<td><a href=\"bookEdit?do=edit&id="+element.getID()+"\">Edit</a></td>");
+							out.println("<td><a href=\"bookEdit?do=delete&id="+element.getID()+"\">Delete</a></td>");
 							out.println("</tr>");
 					}
 		%>	
 		</tbody>
 	</table>
 	<br>
-	<a href="bookEdit ?do=add">Add a new book</a>
+	<a href="bookEdit?do=add">Add a new book</a>
 </body>
 </html>
 
