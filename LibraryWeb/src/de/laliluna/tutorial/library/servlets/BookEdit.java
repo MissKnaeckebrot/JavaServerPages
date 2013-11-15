@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import de.laliluna.tutorial.library.Book;
 import de.laliluna.tutorial.library.SimulateDB;
 
 /**
@@ -45,12 +46,17 @@ public class BookEdit extends HttpServlet {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/bookAdd.jsp");
 			dispatcher.forward(request, response);
 			}
-		else if (action.equals(("edit")){
-			
+		else if (action.equals("edit")){
+			Book book = simulateDB.loadBookById(id,  session);
+			request.setAttribute("book",book);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/bookEdit.jsp");
+			dispatcher.forward(request, response);
 		}
-		
+		else if (action.equals("delete")){
+		simulateDB.deleteBookById(id, session);
+		response.sendRedirect(request.getContextPath() + "/bookList");
 		}
-		
+
 	}
 
 	/**
@@ -58,6 +64,19 @@ public class BookEdit extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		SimulateDB simulateDB = new SimulateDB();
+		long id = 0;
+		try { id = Long.parseLong(request.getParameter("id")); }
+		catch (NumberFormatException e){}
+		String author = request.getParameter("author");
+		String title = request.getParameter("title");
+		Boolean available = Boolean.valueOf(request.getParameter("available"));
+		
+		Book book = new Book (id, author, title, available.booleanValue());
+		simulateDB.saveToDB(book, session);
+		response.sendRedirect(request.getContextPath() + "/bookList");
+		
 	}
 
 }

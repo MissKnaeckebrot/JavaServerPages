@@ -66,7 +66,7 @@ public class SimulateDB {
         for (Iterator iter = books.iterator(); iter.hasNext();) {
             Book element = (Book) iter.next();
             // laliluna 04.10.2004 if book is found do an update
-            if (element.getId() == book.getId()) {
+            if (element.getID() == book.getID()) {
             	booksNew.set(index, book);
                 bookExist = true;
                 break;
@@ -79,14 +79,14 @@ public class SimulateDB {
         // laliluna 04.10.2004 if book is not found, create a new book
         if (bookExist == false) {
             Random random = new Random();
-            book.setId(random.nextLong());
+            book.setID(random.nextLong());
             books.add(book);
         }
 
         // laliluna 04.10.2004 save to DB ;-)
         saveData(session);
 
-        return book.getId();
+        return book.getID();
     }
 
     public Book loadBookById(long id, HttpSession session) {
@@ -95,7 +95,7 @@ public class SimulateDB {
         // laliluna 04.10.2004 loop over all books and return book if found
         for (Iterator iter = books.iterator(); iter.hasNext();) {
             Book element = (Book) iter.next();
-            if (element.getId() == id) return (Book) element;
+            if (element.getID() == id) return (Book) element;
         }
         return null;
     }
@@ -107,7 +107,7 @@ public class SimulateDB {
         // laliluna 04.10.2004 loop over all books and delete book if found
         for (Iterator iter = books.iterator(); iter.hasNext();) {
             Book element = (Book) iter.next();
-            if (element.getId() != id){
+            if (element.getID() != id){
             	booksNew.add(element);
             }
         }
