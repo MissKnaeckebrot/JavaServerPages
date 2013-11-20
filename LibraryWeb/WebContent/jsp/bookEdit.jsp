@@ -44,6 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()
 				</tr>
 			</tbody>
 			</table>
+			<input type="hidden" name="id" value="<%=book.getID() %>">
 		</form>
 
 	</body>

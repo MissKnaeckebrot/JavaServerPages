@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()
 				
 					out.println("<tr>");
 					out.println("<td>" + element.getAuthor() + "</td>") ;
-					out.println("<td>" + element.getTitle() + "<td>");
+					out.println("<td>" + element.getTitle() + "</td>");
 					if (element.isAvailable())
 						out.println("<td><input type=\"checkbox\") name=\"available\" value=\"true\" disabled checked></td>");
 						else
